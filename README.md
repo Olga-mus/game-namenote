@@ -21,7 +21,7 @@ Grid Layout, HTML, CSS.
 
 **Ссылка на проект:**
 
-[GitHub Pages](https://olga-mus.github.io/russian-travel/index.html)
+[GitHub Pages](https://olga-mus.github.io/game-namenote/index.html)
 
 **Статус проекта:**
 
