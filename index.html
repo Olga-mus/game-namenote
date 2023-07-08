@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag_and_drop</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1 class="title">Соедини ноту и ее название</h1>
+    <button class="reset">Начать сначала</button>
+
+    <div class="container">
+        <div class="items">
+            <div data-image="4" class="items__image"></div>
+            <div data-image="6" class="items__image"></div>
+            <div data-image="1" class="items__image"></div>
+            <div data-image="3" class="items__image"></div>
+            <div data-image="7" class="items__image"></div>
+            <div data-image="2" class="items__image"></div>
+            <div data-image="5" class="items__image"></div>
+        </div>
+
+        <div class="placeholders">
+            <div class="placeholder"></div>
+            <div class="placeholder"></div>
+            <div class="placeholder"></div>
+            <div class="placeholder"></div>
+            <div class="placeholder"></div>
+            <div class="placeholder"></div>
+            <div class="placeholder"></div>
+        </div>
+
+    </div>
+
+    <div class="names">
+        <div data-note="1" class="name" draggable="true">До</div>
+        <div class="name" draggable="true">Ре</div>
+        <div class="name" draggable="true">Ми</div>
+        <div class="name" draggable="true">Фа</div>
+        <div class="name" draggable="true">Соль</div>
+        <div class="name" draggable="true">Ля</div>
+        <div class="name" draggable="true">Си</div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

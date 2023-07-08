@@ -1,0 +1,127 @@
+@import './vendor/fonts/fonts.css';
+
+body {
+  background: url('./image/back.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ad74f8c9;
+}
+
+.items__image {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 3px 3px 20px black;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 16px;
+}
+
+[data-image='1'] {
+  background-image: url(./image/1.jpg);
+}
+
+[data-image='2'] {
+  background-image: url(./image/2.jpg);
+}
+
+[data-image='3'] {
+  background-image: url(./image/3.jpg);
+}
+
+[data-image='4'] {
+  background-image: url(./image/4.jpg);
+}
+
+[data-image='5'] {
+  background-image: url(./image/5.jpg);
+}
+
+[data-image='6'] {
+  background-image: url(./image/6.jpg);
+}
+
+[data-image='7'] {
+  background-image: url(./image/7.jpg);
+}
+
+.placeholders {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 16px;
+}
+
+.placeholder {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #000;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 0 30px 30px;
+}
+
+.name {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pacifico', Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  color: #000;
+  background-color: burlywood;
+  cursor: move;
+  box-shadow: 3px 3px 20px black;
+}
+
+.names {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px;
+}
+
+.title {
+  font-family: 'Pacifico', Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  text-align: center;
+}
+
+.dragging {
+  border: 2px solid rgb(235, 174, 95);
+  opacity: 0.5;
+}
+
+.hovered {
+  border: 1px solid #fc9207ed;
+}
+
+.hidden {
+  display: none;
+}
+
+.reset {
+  width: 120px;
+  height: 60px;
+  font-family: 'Pacifico', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  color: #000;
+  background-color: rgb(234, 102, 25);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
