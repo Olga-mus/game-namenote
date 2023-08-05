@@ -40,7 +40,7 @@ placeholders.forEach((item, i) => {
       if (right) {
         document.querySelector('.check').addEventListener('click', function () {
           document.querySelector('.answer_message').textContent =
-            'Здорово! Твой ключ буква А';
+            'Здорово! Твой ключ - буква А. Запомни его, он тебе еще пригодится.';
 
           // document.body.innerHTML = '<h1>Молодец. Ту-ру-ту-ту!!!</h1>';
           // document.body.style.background = 'green';

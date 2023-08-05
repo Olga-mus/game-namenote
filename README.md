@@ -24,5 +24,4 @@ Grid Layout, HTML, CSS.
 [GitHub Pages](https://olga-mus.github.io/game-namenote/index.html)
 
 **Статус проекта:**
-
-Требуется реализовать логику правильного выбора ответа.
+Закончена
