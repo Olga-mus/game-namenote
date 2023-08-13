@@ -138,6 +138,7 @@ body {
   color: #000;
   background-color: rgb(235, 190, 105);
   border-radius: 10px;
+  box-shadow: 3px 3px 20px black;
 }
 
 .yellow {
