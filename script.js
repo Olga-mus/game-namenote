@@ -1,3 +1,6 @@
+renderRandomNotes();
+renderRandomImage();
+
 const items = document.querySelectorAll('.name');
 console.log(items);
 const placeholders = document.querySelectorAll('.placeholder');
@@ -38,14 +41,19 @@ placeholders.forEach((item, i) => {
     const { finish, right } = checkGame();
     if (finish) {
       if (right) {
+        // document.querySelector('.check').disable = false;
         document.querySelector('.check').addEventListener('click', function () {
           document.querySelector('.answer_message').textContent =
             'Здорово! Твой ключ - буква А. Запомни его, он тебе еще пригодится.';
+          setTimeout(function () {
+            document.querySelector('.answer__clue').classList.remove('hidden');
+          }, 2000);
 
           // document.body.innerHTML = '<h1>Молодец. Ту-ру-ту-ту!!!</h1>';
           // document.body.style.background = 'green';
         });
       } else {
+        // document.querySelector('.check').disable = false;
         document.querySelector('.check').addEventListener('click', function () {
           document.querySelector('.answer_message').textContent =
             'Ох... подумай еще';
@@ -134,3 +142,41 @@ function dragleave(evt) {
 btnReset.addEventListener('click', function () {
   window.location.reload();
 });
+
+function renderRandomNotes() {
+  const notes = ['До', 'Ре', 'Ми', 'Фа', 'Соль', 'Ля', 'Си'];
+  const randomNotes = notes
+    .map((note, i) => ({ [i + 1]: note }))
+    .sort(() => Math.random() - 0.5)
+    .map(
+      (note) =>
+        `<div
+          data-note="${Object.keys(note)}"
+          class="name"
+          draggable="true"
+        >
+          ${Object.values(note)}
+        </div>`
+    )
+    .join('\n');
+  document
+    .querySelector('.names')
+    .insertAdjacentHTML('afterbegin', randomNotes);
+}
+
+function renderRandomImage() {
+  const images = ['1', '2', '3', '4', '5', '6', '7'];
+  const randomImage = images
+    .map((image, i) => ({ [i + 1]: image }))
+    .sort(() => Math.random() - 0.5)
+    .map(
+      (image) => `
+  <div data-image="${Object.keys(image)}" class="items__image"></div>
+  `
+    )
+    .join('\n');
+  console.log(randomImage);
+  document
+    .querySelector('.items')
+    .insertAdjacentHTML('afterbegin', randomImage);
+}
