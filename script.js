@@ -6,6 +6,7 @@ console.log(items);
 const placeholders = document.querySelectorAll('.placeholder');
 console.log(placeholders);
 const btnReset = document.querySelector('.reset');
+const btnCheck = document.querySelector('.check');
 
 items.forEach((item) => {
   item.addEventListener('dragend', dragend);
@@ -40,8 +41,9 @@ placeholders.forEach((item, i) => {
     evt.target.classList.remove('hovered');
     const { finish, right } = checkGame();
     if (finish) {
+      btnCheck.disabled = false;
+      btnCheck.classList.remove('disabled');
       if (right) {
-        // document.querySelector('.check').disable = false;
         document.querySelector('.check').addEventListener('click', function () {
           document.querySelector('.answer_message').textContent =
             'Здорово! Твой ключ - буква А. Запомни его, он тебе еще пригодится.';
@@ -53,7 +55,6 @@ placeholders.forEach((item, i) => {
           // document.body.style.background = 'green';
         });
       } else {
-        // document.querySelector('.check').disable = false;
         document.querySelector('.check').addEventListener('click', function () {
           document.querySelector('.answer_message').textContent =
             'Ох... подумай еще';
@@ -70,7 +71,7 @@ function checkGame() {
   const items = document.querySelectorAll('.items__image'); //карточки
   const placeholders = document.querySelectorAll('.placeholder'); //контейнер для вставки
 
-  let finish = true; //игра закончена
+  let finish = true; //игра закончена, нотки вставлены (до проверки)
   let right = true; //верный ответ
 
   items.forEach((item, i) => {

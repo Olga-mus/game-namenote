@@ -144,6 +144,11 @@ body {
   background-color: rgb(234, 102, 25);
 }
 
+.disabled {
+  background-color: rgb(161, 67, 12);
+  color: #2b2a2af5;
+}
+
 .answer {
   background-image: url(./image/answer.png);
   width: 400px;
