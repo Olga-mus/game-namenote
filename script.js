@@ -37,7 +37,10 @@ placeholders.forEach((item, i) => {
   //item.addEventListener('drop', dragdrop);
   item.addEventListener('drop', (evt) => {
     console.log('dragdrop');
-    item.append(document.querySelector('.dragging'));
+    if (item.children.length === 0) {
+      item.append(document.querySelector('.dragging'));
+    }
+    // item.append(document.querySelector('.dragging'));
     evt.target.classList.remove('hovered');
     const { finish, right } = checkGame();
     if (finish) {
