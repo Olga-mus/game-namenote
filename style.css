@@ -79,6 +79,21 @@ body {
   display: grid;
   grid-template-columns: 150px auto auto;
   margin: 0 30px 30px;
+  position: relative;
+}
+
+.btn-start {
+  width: 200px;
+  height: 70px;
+  font-family: 'Merriweather', Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  background-color: rgb(229, 49, 97);
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px black;
+  position: absolute;
+  left: calc(50% - 100px);
+  top: 340px;
 }
 
 .name {

@@ -7,6 +7,44 @@ const placeholders = document.querySelectorAll('.placeholder');
 console.log(placeholders);
 const btnReset = document.querySelector('.reset');
 const btnCheck = document.querySelector('.check');
+const btnStart = document.querySelector('.btn-start');
+const musicBackground = document.querySelector('.play-background');
+const musicGong = document.querySelector('.play-gong');
+const musicZither = document.querySelector('.play-zither');
+const musicPlay = document.querySelector('.play-music');
+const musicClue = document.querySelector('.play-clue');
+const musicTask = document.querySelector('.play-task');
+const musicWrong = document.querySelector('.play-wrong');
+const btnStopMusic = document.querySelector('.btn-stopmusic');
+
+btnStart.addEventListener('click', () => {
+  musicBackground.play();
+  musicTask.play();
+  btnStart.style.display = 'none';
+});
+
+//ended, которое срабатывает, когда воспроизведение аудиофайла завершено
+// Отслеживаем завершение музыки и перезапускаем
+
+function playMusic() {
+  musicBackground.addEventListener('ended', () => {
+    musicBackground.currentTime = 0; // Возвращаем воспроизведение к началу
+    musicBackground.play(); // Запускаем снова
+  });
+}
+
+playMusic();
+
+// Если нужно проверить, остановлена ли музыка вручную или другими событиями:
+function ensureMusicPlays() {
+  if (musicBackground.paused) {
+    // Проверяем, воспроизводится ли музыка
+    musicBackground.currentTime = 0; // Сбрасываем на начало
+    musicBackground.play(); // Запускаем
+  }
+}
+
+ensureMusicPlays();
 
 items.forEach((item) => {
   item.addEventListener('dragend', dragend);
@@ -50,6 +88,20 @@ placeholders.forEach((item, i) => {
         document.querySelector('.check').addEventListener('click', function () {
           document.querySelector('.answer_message').textContent =
             'Здорово! Твой ключ - буква А. Запомни его, он тебе еще пригодится.';
+          musicBackground.pause();
+          musicZither.play();
+          setTimeout(function () {
+            console.log(musicClue);
+            musicClue.play();
+          }, 2000);
+
+          setTimeout(function () {
+            document.querySelector('.answer_message').textContent =
+              'А теперь можешь поиграть на этих нотах вместе с музыкой';
+            musicPlay.play();
+            musicBackground.play(); // Запускаем снова
+          }, 9000);
+
           setTimeout(function () {
             document.querySelector('.answer__clue').classList.remove('hidden');
           }, 2000);
@@ -59,11 +111,17 @@ placeholders.forEach((item, i) => {
         });
       } else {
         document.querySelector('.check').addEventListener('click', function () {
-          document.querySelector('.answer_message').textContent =
-            'Ох... подумай еще';
+          setTimeout(function () {
+            document.querySelector('.answer_message').textContent =
+              'Ох... подумай еще';
+            musicWrong.play();
+          }, 4000);
+
           // document.body.innerHTML =
           //   '<h1>Лопух. Выгоняем тебя из музыкалки!!!</h1>';
           // document.body.style.background = 'red';
+          musicBackground.pause();
+          musicGong.play();
         });
       }
     }
@@ -103,8 +161,12 @@ function playNote(frequency, type = 'sine') {
   o.type = type;
   o.connect(g);
   o.frequency.value = frequency;
+  // Устанавливаем громкость
+  g.gain.value = 0.4; // Например, громкость 20% от максимума
+
   g.connect(context.destination);
   o.start(0);
+  // Уменьшаем громкость к нулю
   g.gain.exponentialRampToValueAtTime(0.000001, context.currentTime + 3);
 }
 
